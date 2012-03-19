@@ -112,8 +112,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     Camera \
-    Superuser \
-    su \
     Usb \
     DockAudio \
 
@@ -121,8 +119,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory \
-    FileManager \
-    MusicFX \
     libjni_pinyinime 
 
 # CameraFix
@@ -220,7 +216,6 @@ PRODUCT_COPY_FILES += \
 # Phone settings
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-    vendor/aokp/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip \
 
 #    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
 
@@ -267,7 +262,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product, hardware/ti/camera/camera.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
-#$(call inherit-product-if-exists, vendor/google/google-vendor.mk)
 $(call inherit-product-if-exists, vendor/verizon/spyder-verizon-vendor.mk)
 
 $(call inherit-product-if-exists, vendor/motorola/spyder/spyder-vendor.mk)
