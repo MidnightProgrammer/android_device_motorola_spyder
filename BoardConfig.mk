@@ -8,7 +8,7 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 
 # inherit from the proprietary version
--include vendor/motorola/spyder/BoardConfigVendor.mk
+-include vendor/moto/spyder/BoardConfigVendor.mk
 
 
 # Processor
@@ -27,7 +27,7 @@ TARGET_GLOBAL_CFLAGS += -DNEEDS_ARM_ERRATA_754319_754320
 
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/motorola/spyder/kernel
+TARGET_PREBUILT_KERNEL := device/moto/spyder/kernel
 BOARD_KERNEL_CMDLINE := console=/dev/null rw mem=1023M@0x80000000 vram=20M omapgpu.vram=0:4M,1:16M,2:16MT init=/init ip=off mmcparts=mmcblk1:p7(pds),p8(utags),p14(boot),p15(recovery),p16(cdrom),p17(misc),p18(cid),p19(kpanic),p20(system),p21(cache),p22(preinstall),p23(webtop),p24(userdata),p25(emstorage) mot_sst=1
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_PAGE_SIZE := 0x4096
@@ -37,7 +37,7 @@ BOARD_PAGE_SIZE := 0x4096
 BOARD_VOLD_MAX_PARTITIONS := 30
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun%d/file"
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/spyder/UsbController.cpp
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/moto/spyder/UsbController.cpp
 
 
 # Connectivity - Wi-Fi
@@ -81,13 +81,13 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Recovery
 BUILD_BOOTMENU_STANDALONE := true
 BOARD_HAS_LOCKED_BOOTLOADER := true
-TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/spyder/recovery-kernel
-#BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/spyder/recovery/graphics.c
-#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/motorola/spyder/recovery/recovery_ui.c
+TARGET_PREBUILT_RECOVERY_KERNEL := device/moto/spyder/recovery-kernel
+#BOARD_CUSTOM_GRAPHICS := ../../../device/moto/spyder/recovery/graphics.c
+#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/moto/spyder/recovery/recovery_ui.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_ALWAYS_INSECURE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_MKE2FS := device/motorola/spyder/releaseutils/mke2fs
+BOARD_MKE2FS := device/moto/spyder/releaseutils/mke2fs
 BOARD_NONSAFE_SYSTEM_DEVICE := /dev/block/mmcblk1p20
 BOARD_HAS_SDCARD_INTERNAL := true
 #BOARD_HAS_SDEXT := false
@@ -103,7 +103,7 @@ BOARD_SYSTEM_FILESYSTEM := ext3
 
 
 # Graphics
-BOARD_EGL_CFG := device/motorola/spyder/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG := device/moto/spyder/prebuilt/etc/egl.cfg
 COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
 
 
@@ -141,9 +141,9 @@ endif
 
 # OTA Packaging
 TARGET_PROVIDES_RELEASETOOLS := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/motorola/spyder/releasetools/spyder_ota_from_target_files
-TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/spyder/releasetools/spyder_img_from_target_files
-TARGET_CUSTOM_RELEASETOOL := ./device/motorola/spyder/releasetools/squisher
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/moto/spyder/releasetools/spyder_ota_from_target_files
+TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/moto/spyder/releasetools/spyder_img_from_target_files
+TARGET_CUSTOM_RELEASETOOL := ./device/moto/spyder/releasetools/squisher
 
 # Hijack
 #TARGET_NEEDS_MOTOROLA_HIJACK := true
