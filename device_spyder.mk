@@ -37,8 +37,8 @@ PRODUCT_COPY_FILES += \
 #    lights.spyder \
 #    sensors.spyder \
 
-#PRODUCT_PACKAGES += \
-#    camera.omap4
+PRODUCT_PACKAGES += \
+    camera.omap4
 
 PRODUCT_PACKAGES += \
     audio.primary.spyder \
@@ -112,7 +112,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     Camera \
-    Usb
+    Usb \
+    DockAudio \
+
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -141,11 +143,21 @@ PRODUCT_PACKAGES += \
     MusicFX \
     libjni_pinyinime 
 
+# CameraFix
+PRODUCT_COPY_FILES += \
+    device/motorola/spyder/prebuilt/camerafix/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
+    device/motorola/spyder/prebuilt/camerafix/camera.omap4.so:system/lib/hw/camera.omap4.so \
+    device/motorola/spyder/prebuilt/camerafix/libcamera.so:system/lib/libcamera.so \
+    device/motorola/spyder/prebuilt/camerafix/libomxcameraadapter.so:system/lib/libomxcameraadapter.so \
+    device/motorola/spyder/prebuilt/camerafix/libtiutils.so:system/lib/libtiutils.so \
+
 # WirelessTether
 PRODUCT_COPY_FILES += \
-    device/motorola/spyder/prebuilt/app/xabber.apk:system/app/xabber.apk \
     device/motorola/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
     device/motorola/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
+    device/motorola/spyder/prebuilt/bin/bootsound:system/bin/bootsound \
+#    device/motorola/spyder/prebuilt/media/android_audio.mp3:system/media/android_audio.mp3 \
+
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
@@ -167,6 +179,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/root/usbcheck.sh:root/usbcheck.sh \
     device/motorola/spyder/root/ueventd.rc:root/ueventd.rc \
 
+
 # Permissions files
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:/system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -186,6 +199,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 
 
+# Removed for camerafix
+#    device/motorola/spyder/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
 # Prebuilts
 PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/bin/battd:system/bin/battd \
@@ -193,7 +208,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/bin/hijack.log_dump:system/bin/hijack.log_dump \
     device/motorola/spyder/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
     device/motorola/spyder/prebuilt/bin/strace:system/bin/strace \
-    device/motorola/spyder/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
     device/motorola/spyder/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/motorola/spyder/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/motorola/spyder/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
@@ -223,6 +237,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/usr/keylayout/omap-keypad.kl:system/usr/keylayout/omap-keypad.kl \
     device/motorola/spyder/prebuilt/usr/keylayout/atmxt-i2c.kl:system/usr/keylayout/atmxt-i2c.kl \
     device/motorola/spyder/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip 
+
 
 # Phone settings
 PRODUCT_COPY_FILES += \
@@ -270,9 +285,9 @@ PRODUCT_COPY_FILES += \
 
 # stuff specific to ti OMAP4 hardware
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
-#$(call inherit-product, hardware/ti/camera/camera.mk)
+$(call inherit-product, hardware/ti/camera/camera.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
-$(call inherit-product-if-exists, vendor/google/google-vendor.mk)
+$(call inherit-product-if-exists, vendor/verizon/spyder-verizon-vendor.mk)
 
 ifeq ($(HOST_OS),darwin)
 $(call inherit-product-if-exists, vendor/verizon/verizon-vendor.mk)
