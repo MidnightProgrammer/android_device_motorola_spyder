@@ -18,35 +18,24 @@ PRODUCT_PACKAGES := \
     charger \
     charger_res_images
 
-# Audio
+# Audio - use stock ICS leak files for now
 PRODUCT_COPY_FILES += \
-    device/moto/spyder/audio/acoustics.default.so:/system/lib/hw/acoustics.spyder.so \
-    device/moto/spyder/audio/alsa.omap4.so:/system/lib/hw/alsa.spyder.so \
+    device/moto/spyder/audio/alsa.omap4.so:/system/lib/hw/alsa.omap4.so \
+    device/moto/spyder/audio/audio.a2dp.default.so:/system/lib/hw/audio.a2dp.default.so \
+    device/moto/spyder/audio/audio.primary.omap4.so:/system/lib/hw/audio.primary.omap4.so \
+    device/moto/spyder/audio/audio_policy.omap4.so:/system/lib/hw/audio_policy.omap4.so \
     device/moto/spyder/audio/libasound.so:/system/lib/libasound.so \
-    device/moto/spyder/audio/libaudio.so:/system/lib/libaudio.so \
-    device/moto/spyder/audio/libaudio_ext.so:/system/lib/libaudio_ext.so \
-    device/moto/spyder/audio/libaudiopolicy.so:/system/lib/libaudiopolicy.so \
-    device/moto/spyder/audio/liba2dp.so:/system/lib/liba2dp.so 
-
-# Hardware HALs
-PRODUCT_COPY_FILES += \
-    device/moto/spyder/prebuilt/imgtec/gralloc.omap4.so:system/lib/hw/gralloc.omap4.so \
-
-# Hardware HALs
-#PRODUCT_PACKAGES += \
-#    lights.spyder \
-#    sensors.spyder \
+    device/moto/spyder/audio/libaudio_ext.so:/system/lib/libaudio_ext.so
 
 PRODUCT_PACKAGES += \
-    camera.omap4
+    camera.omap4 \
+    libinvensense_mpl \
+    hwcomposer.omap4 \
+    hwcomposer.default \
 
 PRODUCT_PACKAGES += \
-    audio.primary.spyder \
-    audio_policy.spyder
-
-# BlueZ a2dp Audio HAL module
-PRODUCT_PACKAGES += \
-    audio.a2dp.default
+    libaudioutils \
+    libaudiohw_legacy \
 
 # BlueZ test tools
 PRODUCT_PACKAGES += \
@@ -64,32 +53,26 @@ PRODUCT_PACKAGES += \
     sh 
 
 # Wifi
+#    wlan_loader \
+#    wlan_cu \
+#    tiwlan.ini
 PRODUCT_PACKAGES += \
-    libCustomWifi \
-    wlan_loader \
-    wlan_cu \
+    lib_driver_cmd_wl12xx \
     dhcpcd.conf \
-    wpa_supplicant.conf 
+    wpa_supplicant.conf \
+    TQS_D_1.7.ini \
 
 # HotSpot
-PRODUCT_PACKAGES += \
-    tiap_loader \
-    tiap_cu \
-    hostap \
-    hostapd.conf 
+#PRODUCT_PACKAGES += \
+#    tiap_loader \
+#    tiap_cu \
+#    hostap \
+#    hostapd.conf 
 
 # Bluetooth
 PRODUCT_PACKAGES += \
     bt_sco_app \
     uim-sysfs 
-
-# FM Radio
-#PRODUCT_PACKAGES += \
-#    com.ti.fm.fmradioif.xml \
-#    fmradioif \
-#    FmRxApp \
-#    FmTxApp \
-#    FmService 
 
 # Release utilities
 PRODUCT_PACKAGES += \
@@ -98,21 +81,8 @@ PRODUCT_PACKAGES += \
     spyder_releaseutils-mke2fs \
     spyder_releaseutils-tune2fs
 
-# Tests -- Can remove later
-PRODUCT_PACKAGES += \
-    d2c_test \
-    memmgr_test \
-    utils_test \
-    tiler_ptest \
-    overlay_test \
-    omx_tests \
-    evtest \
-#    camera_test \
-#    VideoEncTest 
-
 PRODUCT_PACKAGES += \
     Camera \
-    Usb \
     DockAudio \
 
 
@@ -121,18 +91,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libjni_pinyinime 
 
-# CameraFix
-PRODUCT_COPY_FILES += \
-    device/moto/spyder/prebuilt/camerafix/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
-    device/moto/spyder/prebuilt/camerafix/camera.omap4.so:system/lib/hw/camera.omap4.so \
-    device/moto/spyder/prebuilt/camerafix/libcamera.so:system/lib/libcamera.so \
-    device/moto/spyder/prebuilt/camerafix/libomxcameraadapter.so:system/lib/libomxcameraadapter.so \
-    device/moto/spyder/prebuilt/camerafix/libtiutils.so:system/lib/libtiutils.so \
-
 # WirelessTether
 PRODUCT_COPY_FILES += \
-    device/moto/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
-    device/moto/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
+    device/motorola/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
+    device/motorola/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
     
 
 # Rootfs files
@@ -145,6 +107,8 @@ PRODUCT_COPY_FILES += \
     device/moto/spyder/root/init.mapphone_umts.rc:system/etc/rootfs/init.mapphone_umts.rc \
     device/moto/spyder/root/usbcheck.sh:system/etc/rootfs/usbcheck.sh \
     device/moto/spyder/root/ueventd.rc:system/etc/rootfs/ueventd.rc \
+    device/moto/spyder/root/ueventd.mapphone_cdma.rc:system/etc/rootfs/ueventd.mapphone_cdma.rc \
+    device/moto/spyder/root/ueventd.mapphone_umts.rc:system/etc/rootfs/ueventd.mapphone_umts.rc \
 
 # Hijack files
 PRODUCT_COPY_FILES += \
@@ -154,6 +118,8 @@ PRODUCT_COPY_FILES += \
     device/moto/spyder/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
     device/moto/spyder/root/usbcheck.sh:root/usbcheck.sh \
     device/moto/spyder/root/ueventd.rc:root/ueventd.rc \
+    device/moto/spyder/root/ueventd.mapphone_cdma.rc:root/ueventd.mapphone_cdma.rc \
+    device/moto/spyder/root/ueventd.mapphone_umts.rc:root/ueventd.mapphone_umts.rc \
 
 
 # Permissions files
@@ -171,12 +137,13 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:/system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:/system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:/system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/android.hardware.wifi.direct.xml:/system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:/system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 
 
-# Removed for camera fix
-#    device/moto/spyder/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
+#    vendor/moto/spyder/proprietary/etc/permissions/platform.xml:system/etc/permissions/platform.xml \
 # Prebuilts
 PRODUCT_COPY_FILES += \
     device/moto/spyder/prebuilt/bin/battd:system/bin/battd \
@@ -187,55 +154,39 @@ PRODUCT_COPY_FILES += \
     device/moto/spyder/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/moto/spyder/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/moto/spyder/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/moto/spyder/prebuilt/etc/wifi/tiwlan_ap.ini:system/etc/wifi/tiwlan_ap.ini \
-    device/moto/spyder/prebuilt/etc/wifi/tiwlan.ini:system/etc/wifi/tiwlan.ini \
     device/moto/spyder/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
+    device/moto/spyder/prebuilt/usr/idc/evfwd.idc:system/usr/idc/evfwd.idc \
+    device/moto/spyder/prebuilt/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \
+    device/moto/spyder/prebuilt/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
     device/moto/spyder/prebuilt/usr/idc/cpcap-key.idc:system/usr/idc/cpcap-key.idc \
     device/moto/spyder/prebuilt/usr/idc/cy8c201xx.idc:system/usr/idc/cy8c201xx.idc \
     device/moto/spyder/prebuilt/usr/idc/light-prox.idc:system/usr/idc/light-prox.idc \
     device/moto/spyder/prebuilt/usr/idc/mapphone-switch.idc:system/usr/idc/mapphone-switch.idc \
-    device/moto/spyder/prebuilt/usr/idc/omap-keypad.idc:system/usr/idc/omap-keypad.idc \
+    device/moto/spyder/prebuilt/usr/idc/omap4-keypad.idc:system/usr/idc/omap4-keypad.idc \
     device/moto/spyder/prebuilt/usr/idc/atmxt-i2c.idc:system/usr/idc/atmxt-i2c.idc \
+    device/moto/spyder/prebuilt/usr/keychars/evfwd.kcm:system/usr/keychars/evfwd.kcm \
+    device/moto/spyder/prebuilt/usr/keychars/omap4-keypad.kcm:system/usr/keychars/omap4-keypad.kcm \
+    device/moto/spyder/prebuilt/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    device/moto/spyder/prebuilt/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
     device/moto/spyder/prebuilt/usr/keychars/cpcap-key.kcm:system/usr/keychars/cpcap-key.kcm \
     device/moto/spyder/prebuilt/usr/keychars/cy8c201xx.kcm:system/usr/keychars/cy8c201xx.kcm \
     device/moto/spyder/prebuilt/usr/keychars/light-prox.kcm:system/usr/keychars/light-prox.kcm \
     device/moto/spyder/prebuilt/usr/keychars/mapphone-switch.kcm:system/usr/keychars/mapphone-switch.kcm \
-    device/moto/spyder/prebuilt/usr/keychars/omap-keypad.kcm:system/usr/keychars/omap-keypad.kcm \
     device/moto/spyder/prebuilt/usr/keychars/atmxt-i2c.kcm:system/usr/keychars/atmxt-i2c.kcm \
-    device/moto/spyder/prebuilt/usr/keylayout/aev_abs.kl:system/usr/keylayout/aev_abs.kl \
     device/moto/spyder/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/moto/spyder/prebuilt/usr/keylayout/cdma_spyder-keypad.kl:system/usr/keylayout/cdma_spyder-keypad.kl \
     device/moto/spyder/prebuilt/usr/keylayout/cpcap-key.kl:system/usr/keylayout/cpcap-key.kl \
-    device/moto/spyder/prebuilt/usr/keylayout/light-prox.kl:system/usr/keylayout/light-prox.kl \
-    device/moto/spyder/prebuilt/usr/keylayout/mapphone-switch.kl:system/usr/keylayout/mapphone-switch.kl \
     device/moto/spyder/prebuilt/usr/keylayout/cy8c201xx.kl:system/usr/keylayout/cy8c201xx.kl \
     device/moto/spyder/prebuilt/usr/keylayout/evfwd.kl:system/usr/keylayout/evfwd.kl \
-    device/moto/spyder/prebuilt/usr/keylayout/omap-keypad.kl:system/usr/keylayout/omap-keypad.kl \
+    device/moto/spyder/prebuilt/usr/keylayout/omap4-keypad.kl:system/usr/keylayout/omap4-keypad.kl \
+    device/moto/spyder/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/moto/spyder/prebuilt/usr/keylayout/atmxt-i2c.kl:system/usr/keylayout/atmxt-i2c.kl \
-    device/moto/spyder/prebuilt/app/MotoSimUiHelper.apk:system/app/MotoSimUiHelper.apk \
+    device/moto/spyder/prebuilt/usr/keylayout/light-prox.kl:system/usr/keylayout/light-prox.kl \
+    device/moto/spyder/prebuilt/usr/keylayout/mapphone-switch.kl:system/usr/keylayout/mapphone-switch.kl \
 
 # Phone settings
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-
-#    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
-
-
-# Graphics
-PRODUCT_COPY_FILES += \
-    device/moto/spyder/prebuilt/imgtec/pvrsrvinit:system/bin/pvrsrvinit \
-    device/moto/spyder/prebuilt/imgtec/libEGL_POWERVR_SGX540_120.so:system/lib/egl/libEGL_POWERVR_SGX540_120.so \
-    device/moto/spyder/prebuilt/imgtec/libGLESv1_CM_POWERVR_SGX540_120.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so \
-    device/moto/spyder/prebuilt/imgtec/libGLESv2_POWERVR_SGX540_120.so:system/lib/egl/libGLESv2_POWERVR_SGX540_120.so \
-    device/moto/spyder/prebuilt/imgtec/libglslcompiler.so:system/lib/libglslcompiler.so \
-    device/moto/spyder/prebuilt/imgtec/libIMGegl.so:system/lib/libIMGegl.so \
-    device/moto/spyder/prebuilt/imgtec/libpvr2d.so:system/lib/libpvr2d.so \
-    device/moto/spyder/prebuilt/imgtec/libpvrANDROID_WSEGL.so:system/lib/libpvrANDROID_WSEGL.so \
-    device/moto/spyder/prebuilt/imgtec/libPVRScopeServices.so:system/lib/libPVRScopeServices.so \
-    device/moto/spyder/prebuilt/imgtec/libsrv_init.so:system/lib/libsrv_init.so \
-    device/moto/spyder/prebuilt/imgtec/libsrv_um.so:system/lib/libsrv_um.so \
-    device/moto/spyder/prebuilt/imgtec/libusc.so:system/lib/libusc.so \
-    device/moto/spyder/prebuilt/imgtec/libdrm.so:system/lib/libdrm.so \
+    device/moto/spsyder/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -261,7 +212,6 @@ PRODUCT_COPY_FILES += \
 
 # stuff specific to ti OMAP4 hardware
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
-$(call inherit-product, hardware/ti/camera/camera.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 
 $(call inherit-product-if-exists, vendor/moto/spyder/spyder-vendor.mk)
