@@ -93,8 +93,8 @@ PRODUCT_PACKAGES += \
 
 # WirelessTether
 PRODUCT_COPY_FILES += \
-    device/motorola/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
-    device/motorola/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
+    device/moto/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
+    device/moto/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
     
 
 # Rootfs files
