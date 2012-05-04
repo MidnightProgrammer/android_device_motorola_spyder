@@ -3,7 +3,7 @@ USE_CAMERA_STUB := false
 BOARD_USES_TI_CAMERA_HAL := true
 
 # inherit from the proprietary version
--include vendor/moto/spyder/BoardConfigVendor.mk
+-include vendor/motorola/spyder/BoardConfigVendor.mk
 
 
 # Processor
@@ -22,7 +22,7 @@ TARGET_GLOBAL_CFLAGS += -DNEEDS_ARM_ERRATA_754319_754320
 
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/moto/spyder/kernel
+TARGET_PREBUILT_KERNEL := device/motorola/spyder/kernel
 BOARD_KERNEL_CMDLINE := omap_wdt.timer_margin=60 oops=panic console=/dev/null rw mem=1023M@0x80000000 vram=11140K omapfb.vram=0:8256K,1:4K,2:2880K init=/init ip=off mmcparts=mmcblk1:p7(pds),p8(utags),p14(boot),p15(recovery),p16(cdrom),p17(misc),p18(cid),p19(kpanic),p20(system),p21(cache),p22(preinstall),p23(webtop),p24(userdata),p25(emstorage) mot_sst=1 androidboot.bootloader=0x0A
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_PAGE_SIZE := 0x4096
@@ -32,7 +32,7 @@ BOARD_PAGE_SIZE := 0x4096
 BOARD_VOLD_MAX_PARTITIONS := 100
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun%d/file"
-#BOARD_CUSTOM_USB_CONTROLLER := ../../device/moto/spyder/UsbController.cpp
+#BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/spyder/UsbController.cpp
 
 
 # Connectivity - Wi-Fi
@@ -58,7 +58,7 @@ HAVE_2_3_DSP := 1
 #    COMMON_GLOBAL_CFLAGS += -DBOARD_USES_AUDIO_LEGACY
 #endif
 TARGET_PROVIDES_LIBAUDIO := true
-BOARD_USE_MOTO_DOCK_HACK := true
+BOARD_USE_motorola_DOCK_HACK := true
 
 
 # Bluetooth
@@ -69,13 +69,13 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Recovery
 BUILD_BOOTMENU_STANDALONE := true
 BOARD_HAS_LOCKED_BOOTLOADER := true
-TARGET_PREBUILT_RECOVERY_KERNEL := device/moto/spyder/recovery-kernel
-#BOARD_CUSTOM_GRAPHICS := ../../../device/moto/spyder/recovery/graphics.c
-#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/moto/spyder/recovery/recovery_ui.c
+TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/spyder/recovery-kernel
+#BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/spyder/recovery/graphics.c
+#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/motorola/spyder/recovery/recovery_ui.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_ALWAYS_INSECURE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_MKE2FS := device/moto/spyder/releaseutils/mke2fs
+BOARD_MKE2FS := device/motorola/spyder/releaseutils/mke2fs
 BOARD_NONSAFE_SYSTEM_DEVICE := /dev/block/mmcblk1p20
 BOARD_HAS_SDCARD_INTERNAL := true
 #BOARD_HAS_SDEXT := false
@@ -91,7 +91,7 @@ BOARD_SYSTEM_FILESYSTEM := ext3
 
 
 # Graphics
-BOARD_EGL_CFG := device/moto/spyder/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG := device/motorola/spyder/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
 #COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
 
@@ -103,12 +103,12 @@ COMMON_GLOBAL_CFLAGS += -DOMAP_ENHANCEMENT -DTARGET_OMAP4
 endif
 
 
-# MOTOROLA
-USE_MOTOROLA_CODE := true
+# motorolaROLA
+USE_motorolaROLA_CODE := true
 ifdef USE_MOTOROLA_CODE
 COMMON_GLOBAL_CFLAGS += -DUSE_MOTOROLA_CODE
 endif
-USE_MOTOROLA_USERS := true
+USE_motorolaROLA_USERS := true
 ifdef USE_MOTOROLA_USERS
 COMMON_GLOBAL_CFLAGS += -DUSE_MOTOROLA_USERS
 endif
@@ -119,12 +119,12 @@ endif
 
 # OTA Packaging
 TARGET_PROVIDES_RELEASETOOLS := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/moto/spyder/releasetools/spyder_ota_from_target_files
-TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/moto/spyder/releasetools/spyder_img_from_target_files
-TARGET_CUSTOM_RELEASETOOL := ./device/moto/spyder/releasetools/squisher
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/motorola/spyder/releasetools/spyder_ota_from_target_files
+TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/spyder/releasetools/spyder_img_from_target_files
+TARGET_CUSTOM_RELEASETOOL := ./device/motorola/spyder/releasetools/squisher
 
 # Hijack
-#TARGET_NEEDS_MOTOROLA_HIJACK := true
+#TARGET_NEEDS_motorolaROLA_HIJACK := true
 #BOARD_HIJACK_LOG_ENABLE := true
 
 
