@@ -135,7 +135,7 @@ PRODUCT_COPY_FILES += \
 
 # WirelessTether
 PRODUCT_COPY_FILES += \
-    device/motorola/spyder/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
+    device/motorola/spyder/prebuilt/app/wifi_tether_v3_1-beta14.apk:system/app/wifi_tether_v3_1-beta14.apk \
     device/motorola/spyder/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
     device/motorola/spyder/prebuilt/bin/bootsound:system/bin/bootsound \
 #    device/motorola/spyder/prebuilt/media/android_audio.mp3:system/media/android_audio.mp3 \
