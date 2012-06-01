@@ -88,6 +88,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     camera_test \
+    Camera \
+    CameraOMAP4 \
     Superuser \
     su \
     DockAudio \
