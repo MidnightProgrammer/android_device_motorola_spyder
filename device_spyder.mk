@@ -178,6 +178,11 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/usr/keylayout/omap4-keypad.kl:system/usr/keylayout/omap4-keypad.kl \
     device/motorola/spyder/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
 
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    device/motorola/spyder/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
+    device/motorola/spyder/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
+    device/motorola/spyder/prebuilt/bin/50-backup.sh:system/addon.d/50-backup.sh
 
 # Phone settings
 PRODUCT_COPY_FILES += \
