@@ -160,7 +160,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
     device/motorola/spyder/prebuilt/bin/strace:system/bin/strace \
     device/motorola/spyder/prebuilt/etc/gps.conf:system/etc/gps.conf \
-    device/motorola/spyder/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/motorola/spyder/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/motorola/spyder/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
     device/motorola/spyder/prebuilt/usr/idc/evfwd.idc:system/usr/idc/evfwd.idc \
@@ -178,6 +177,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/usr/keylayout/omap4-keypad.kl:system/usr/keylayout/omap4-keypad.kl \
     device/motorola/spyder/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
 
+#    device/motorola/spyder/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
 # Backup Tool
 PRODUCT_COPY_FILES += \
     device/motorola/spyder/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
