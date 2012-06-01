@@ -108,7 +108,7 @@ PRODUCT_COPY_FILES += \
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    out/target/product/spyder/root/init:system/etc/rootfs/init \
+    device/motorola/spyder/root/init:system/etc/rootfs/init \
     out/target/product/spyder/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
     device/motorola/spyder/root/default.prop:system/etc/rootfs/default.prop \
     device/motorola/spyder/root/init.rc:system/etc/rootfs/init.rc \
