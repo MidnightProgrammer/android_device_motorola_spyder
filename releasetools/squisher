@@ -151,14 +151,7 @@ cp -f $ANDROID_BUILD_TOP/device/motorola/spyder/prebuilt/lib/libvoicesearch.so $
 # Determine what to name the new signed package
 REALDATE=`date +%m-%d`
 
-if [ -z "$CYANOGEN_NIGHTLY" ]; then
-	MODVERSION=`sed -n -e'/ro\.cm\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
-	: ${MODVERSION:=nightly}
-    OUTFILE=$OUT/RAZR-ICS-LEAK-CM9-$REALDATE-UNOFFICIAL.zip
-	echo MODVERSION: $MODVERSION
-else
-	OUTFILE=$OUT/update-squished.zip
-fi
+    OUTFILE=$OUT/RAZR-ICS-LEAK-AOSP-OMAPZOOM-$REALDATE.zip
 
 # Pack it up and sign
 printf "Zipping package..."
