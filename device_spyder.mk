@@ -100,7 +100,17 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     FileManager \
     MusicFX \
-    Apollo \
+    VideoEditor \
+    VoiceDialer \
+    Basic \
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    PhaseBeam \
 
 # WirelessTether
 PRODUCT_PACKAGES += wifi_tether_v3_1-beta14
