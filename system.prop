@@ -295,3 +295,5 @@ persist.sys.usb.config=mass_storage,adb
 com.ti.omap_enhancement=true
 hwui.render_dirty_regions=false
 
+# use charge_counter for 1% battery increments
+ro.product.use_charge_counter=1
