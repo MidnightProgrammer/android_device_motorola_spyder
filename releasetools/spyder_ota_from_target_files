@@ -409,21 +409,23 @@ def WriteFullOTAPackage(input_zip, output_zip):
     script.Print("Erasing user data...")
     script.FormatPartition("/data")
 
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  script.Print("    \ )        (          )\ ) )\ )           ")
+  script.Print("    (()/  (   ( )\     (  (()/((()/(          ")
+  script.Print("    (_)) ((_) (_)_)   /((_)(_)) (_))          ")
+  script.Print("    | |   (_) / _ \ (_))( |_ _| |   \         ")
+  script.Print("    | |__ | || (_) || || | | |  | |) |        ")
+  script.Print("    |____||_| \__\_\ \_,_||___| |___/         ")
+  script.Print("   __/\__ __/\__  __/\__  __/\__  __/\__      ")
+  script.Print("   \    / \    /  \    /  \    /  \    /      ")
+  script.Print("   /_  _\ /_  _\  /_  _\  /_  _\  /_  _\      ")
+  script.Print("     \/     \/      \/      \/      \/        ")
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  script.Print("   <%%% Liquid-Ice-Cream-Sandwich-ICS %%%>    ")
+  script.Print("           <%%% By TeamLiquid %%%>            ")
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+
 #  CopyUtilityFiles(input_zip, output_zip)
-  script.Print("************************************************")
-  script.Print("*                                              *")
-  script.Print("*            STS-Dev-Team presents             *")
-  script.Print("*                                              *")
-  script.Print("*    CM9 Unoffiical RAZR ICS Leak (.75-.20x)   *")
-  script.Print("*                                              *")
-  script.Print("*     Follow us  @dhacker29 and @hashcode0f    *")
-  script.Print("*        Get the GApps at goo.im/gapps         *")
-  script.Print("*                                              *")
-  script.Print("*     And visit droidhive.com for support      *")
-  script.Print("*                                              *")
-  script.Print("************************************************")
-  script.Print(" ")
-  script.Print("Wiping cache...");
   script.Mount("/cache");
   script.DeleteRecursive("/cache");
   script.Print("Wiping dalvik-cache...")
@@ -431,16 +433,18 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.DeleteRecursive("/data/dalvik-cache")
 
 #  script.RunFormatAndTuneSystem()
-  script.Print("Mounting your system...")
+  script.Print("Mounting System...")
   script.Mount("/system")
-  script.Print("Deleting old system files...")
+  script.Print("Erasing System...")
   script.DeleteRecursive("/system")
-  script.Print("Starting Installation...")
   #script.UnpackPackageDir("recovery", "/system")
+  script.ShowProgress(0.5, 40)
+  script.Print("Installing System...")
   script.UnpackPackageDir("system", "/system")
-
+  script.Print("Creating Symlinks...")
   (symlinks, retouch_files) = CopySystemFiles(input_zip, output_zip)
   script.MakeSymlinks(symlinks)
+
 #  if OPTIONS.aslr_mode:
 #    script.RetouchBinaries(retouch_files)
 #  else:
@@ -474,9 +478,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
 #  script.WriteRawImage("/boot", "boot.img")
 
   script.ShowProgress(0.1, 0)
-  script.Print("Don't forget to install the GApps if fresh install.")
-  script.Print("")
-  script.Print("Finished installing CM9 for Droid Razr Leak, Enjoy!")
+  script.Print("Installation Finished!")
   device_specific.FullOTA_InstallEnd()
 
   if OPTIONS.extra_script is not None:

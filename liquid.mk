@@ -1,16 +1,16 @@
+# phone
+$(call inherit-product, vendor/liquid/config/common_phone.mk)
+
 # Inherit device configuration for VZW Droid RAZR.
-$(call inherit-product, device/motorola/spyder/device_spyder.mk)
+$(call inherit-product, device/motorola/spyder/full_spyder.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
-# Inherit some common CM stuff.
-#$(call inherit-product, vendor/cm/config/gsm.mk)
+# gsm
+#$(call inherit-product, vendor/liquid/config/common-gsm.mk)
 
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := cm_spyder
+PRODUCT_NAME := liquid_spyder
 PRODUCT_BRAND := verizon
 PRODUCT_DEVICE := spyder
 PRODUCT_DEVICE_PREFIX := cdma
@@ -19,12 +19,12 @@ PRODUCT_MANUFACTURER := Motorola
 PRODUCT_SFX := vzw
 ANDROID_VERSION := 4.0.4_r1.2
 #MOTOROLA_BUILD_ID := 6.7.1-68_DHD-15_M4-16
-MOTOROLA_BUILD_ID := IMM76D
+MOTOROLA_BUILD_ID := IMM76K
 MOTOROLA_SOFTWARE_VERSION := 6.14.84
 DEVELOPER_NAME := dhacker29
 DEVELOPER_HOST := rombot.droidhive.com
 DEVELOPMENT_STAGE := Beta
-TARGET_BOOTANIMATION_NAME := vertical-540x960
+PRODUCT_PROPERTY_OVERRIDES += ro.modversion=liquid.spyder.$(shell date +%m%d%y).$(shell date +%H%M%S)
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := DROID RAZR
@@ -49,3 +49,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
    BUILD_HOST=${DEVELOPER_HOST} \
    PRODUCT_DEFAULT_LANGUAGE=en \
    PRODUCT_DEFAULT_REGION=US \
+
+# media
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/media/hdpi/bootanimation.zip:system/media/bootanimation.zip
+

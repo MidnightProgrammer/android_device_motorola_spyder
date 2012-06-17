@@ -108,7 +108,7 @@ PRODUCT_COPY_FILES += \
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    out/target/product/spyder/root/init:system/etc/rootfs/init \
+    device/motorola/spyder/root/init:system/etc/rootfs/init \
     out/target/product/spyder/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
     device/motorola/spyder/root/default.prop:system/etc/rootfs/default.prop \
     device/motorola/spyder/root/init.rc:system/etc/rootfs/init.rc \
@@ -181,8 +181,8 @@ PRODUCT_COPY_FILES += \
 
 # Phone settings
 PRODUCT_COPY_FILES += \
-    device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
+    device/motorola/spyder/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
+    vendor/liquid/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -217,7 +217,3 @@ $(call inherit-product-if-exists, vendor/motorola/spyder/spyder-vendor.mk)
 # stuff common to all Motorola phones -- disabled for Sandbox
 #$(call inherit-product, device/motorola/common/common_hijack.mk)
 
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-
-PRODUCT_NAME := full_spyder
-PRODUCT_DEVICE := spyder
