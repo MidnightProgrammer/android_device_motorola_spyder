@@ -297,3 +297,5 @@ hwui.render_dirty_regions=false
 
 # use charge_counter for 1% battery increments
 ro.product.use_charge_counter=1
+ril.subscription.types=NV,RUIM
+ro.ril.moto.newarch=true
