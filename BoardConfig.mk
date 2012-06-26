@@ -7,6 +7,8 @@ BOARD_USES_TI_CAMERA_HAL := true
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 
+ENABLE_WEBGL := true
+
 # inherit from the proprietary version
 -include vendor/motorola/spyder/BoardConfigVendor.mk
 
@@ -48,7 +50,6 @@ WPA_SUPPLICANT_VERSION      := VER_0_6_X
 HOSTAPD_VERSION             := VER_0_6_X
 BOARD_SOFTAP_DEVICE         := wl1283
 BOARD_WLAN_DEVICE           := wl1283
-#BOARD_WLAN_TI_STA_DK_ROOT   := system/wlan/ti/wilink_6_1
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/tiwlan_drv.ko"
 WIFI_DRIVER_MODULE_NAME     := "tiwlan_drv"
 WIFI_DRIVER_MODULE_ARG      := ""
@@ -82,8 +83,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BUILD_BOOTMENU_STANDALONE := true
 BOARD_HAS_LOCKED_BOOTLOADER := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/spyder/recovery-kernel
-#BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/spyder/recovery/graphics.c
-#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/motorola/spyder/recovery/recovery_ui.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_ALWAYS_INSECURE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
