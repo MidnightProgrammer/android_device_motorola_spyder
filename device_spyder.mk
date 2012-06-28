@@ -65,7 +65,9 @@ PRODUCT_PACKAGES += \
     TQS_D_1.7.ini \
     crda \
     regulatory.bin \
-    calibrator
+    calibrator \
+    iw \
+    libnl \
 
 # HotSpot
 #PRODUCT_PACKAGES += \
